@@ -1,0 +1,24 @@
+<%= form_with(model: @company, url: companies_path) do |form| %>
+  <h1>基本情報登録</h1>
+  <h4>はじめにあなたの会社情報を登録してください。</h4>
+  <h4>あとから変更することもできます。</h4>
+    
+  <p>会社名</p>
+  <%= form.text_field :name, placeholder: '株式会社XX' %>
+  
+  <p>所在地</p>
+  <%= form.text_field :location, placeholder: '東京都渋谷区' %>
+  
+  <p>会社サイトURL</p>
+  <%= form.text_field :url, placeholder: 'https://www.example.com' %>
+  
+  <p>正社員数</p>
+  <%= form.text_field :worker, placeholder: '100' %>
+  
+  <p>設立年</p>
+  <%= form.text_field :establish, placeholder: '1999' %>
+  
+  <p>資本金</p>
+  <%= form.text_field :asset, placeholder: '10000000' %>
+  <%= form.submit '登録' %>
+<% end %>
