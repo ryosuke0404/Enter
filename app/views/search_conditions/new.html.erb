@@ -1,0 +1,123 @@
+<div class="header">
+<h2><%= link_to 'ホーム', status_list_path %></h2>
+<h2>案件管理</h2>
+<h2><%= link_to '進出先を探す', new_search_conditions_path %></h2>
+<h2>お問い合わせ</h2>
+</div>
+
+<div class="status_list">
+    <h2>進出先を探す</h2>
+    <input type="text" placeholder="キーワードを入力">
+    <button>検索</button>
+
+    <div class="tabs">
+        <div class="tab" onclick="openTab('tab1')">エリア</div>
+        <div class="tab" onclick="openTab('tab2')">拠点の役割</div>
+        <div class="tab" onclick="openTab('tab3')">求める環境</div>
+    </div>
+
+    <div id="tab1" class="tabcontent">
+        <%= form_with(model: @company, url: companies_path) do |form| %>
+            <h4>北海道・東北エリア</h4>
+            <%= form.check_box :north_area, { multiple: true }, 'hokkaido', nil %> <%= label :north_erea_hokkaido, '北海道', for: 'north_erea_hokkaido' %>
+            <%= form.check_box :north_erea, { multiple: true }, 'aomori', nil %> <%= label :north_erea_aomori, '青森', for:'north_erea_aomori' %>
+            <%= form.check_box :north_erea, { multiple: true }, 'iwate', nil %> <%= label :north_erea_iwate, '岩手', for: 'north_erea_iwate' %>
+            <%= form.check_box :north_erea, { multiple: true }, 'akita', nil %> <%= label :north_erea_akita, '秋田', for: 'north_erea_akita' %>
+            <%= form.check_box :north_area, { multiple: true }, 'miyagi', nil %> <%= label :north_erea_miyagi, '宮城', for: 'north_erea_miyagi' %>
+            <%= form.check_box :north_erea, { multiple: true }, 'yamagata', nil %> <%= label :north_erea_yamagata, '山形', for:'north_erea_yamagata' %>
+            <%= form.check_box :north_erea, { multiple: true }, 'hukushima', nil %> <%= label :north_erea_hukushima, '福島', for: 'north_erea_hukushima' %>
+
+            <h4>関東エリア</h4>
+            <%= form.check_box :east_area, { multiple: true }, 'tokyo', nil %> <%= label :east_area_tokyo, '東京', for: 'east_area_tokyo' %>
+            <%= form.check_box :east_area, { multiple: true }, 'ibaraki', nil %> <%= label :east_area_ibaraki, '茨城', for:'east_area_ibaraki' %>
+            <%= form.check_box :east_area, { multiple: true }, 'totigi', nil %> <%= label :east_area_totigi, '栃木', for: 'east_area_totigi' %>
+            <%= form.check_box :east_area, { multiple: true }, 'gunma', nil %> <%= label :east_area_gunma, '群馬', for: 'east_area_gunma' %>
+            <%= form.check_box :east_area, { multiple: true }, 'saitama', nil %> <%= label :east_area_saitama, '埼玉', for: 'east_area_saitama' %>
+            <%= form.check_box :east_area, { multiple: true }, 'chiba', nil %> <%= label :east_area_chiba, '千葉', for:'east_area_chiba' %>
+            <%= form.check_box :east_area, { multiple: true }, 'kanagawa', nil %> <%= label :east_area_kanagawa, '神奈川', for: 'east_area_kanagawa' %>
+
+
+            <h4>中部エリア</h4>
+            <%= form.check_box :center_area, { multiple: true }, 'nigata', nil %> <%= label :center_area_nigata, '新潟', for: 'center_area_nigata' %>
+            <%= form.check_box :center_area, { multiple: true }, 'toyama', nil %> <%= label :center_area_toyama, '富山', for:'center_area_toyama' %>
+            <%= form.check_box :center_area, { multiple: true }, 'ishikawa', nil %> <%= label :center_area_ishikawa, '石川', for: 'center_area_ishikawa' %>
+            <%= form.check_box :center_area, { multiple: true }, 'hukui', nil %> <%= label :center_area_hukui, '福井', for: 'center_area_hukui' %>
+            <%= form.check_box :center_area, { multiple: true }, 'yamanashi', nil %> <%= label :center_area_yamanashi, '山梨', for: 'center_area_yamanashi' %>
+            <%= form.check_box :center_area, { multiple: true }, 'nagano', nil %> <%= label :center_area_nagano, '長野', for:'center_area_nagano' %>
+            <%= form.check_box :center_area, { multiple: true }, 'gihu', nil %> <%= label :center_area_gihu, '岐阜', for: 'center_area_gihu' %>
+            <%= form.check_box :center_area, { multiple: true }, 'shizuoka', nil %> <%= label :center_area_shizuoka, '静岡', for: 'center_area_shizuoka' %>
+            <%= form.check_box :center_area, { multiple: true }, 'aichi', nil %> <%= label :center_area_aichi, '愛知', for: 'center_area_aichi' %>
+
+
+            <h4>近畿エリア</h4>
+            <%= form.check_box :west_area, { multiple: true }, 'kyoto', nil %> <%= label :west_area_kyoto, '京都', for: 'west_area_kyoto' %>
+            <%= form.check_box :west_area, { multiple: true }, 'osaka', nil %> <%= label :west_area_osaka, '大阪', for:'west_area_osaka' %>
+            <%= form.check_box :west_area, { multiple: true }, 'hyogo', nil %> <%= label :west_area_hyogo, '兵庫', for: 'west_area_hyogo' %>
+            <%= form.check_box :west_area, { multiple: true }, 'siga', nil %> <%= label :west_area_siga, '滋賀', for: 'west_area_siga' %>
+            <%= form.check_box :west_area, { multiple: true }, 'nara', nil %> <%= label :west_area_nara, '奈良', for: 'west_area_nara' %>
+            <%= form.check_box :west_area, { multiple: true }, 'wakayama', nil %> <%= label :west_area_wakayama, '和歌山', for:'west_area_wakayama' %>
+            <%= form.check_box :west_area, { multiple: true }, 'mie', nil %> <%= label :west_area_mie, '三重', for: 'west_area_mie' %>
+
+            <h4>中国エリア</h4>
+            <%= form.check_box :west_center_area, { multiple: true }, 'tottori', nil %> <%= label :west_center_area_tottori, '鳥取', for: 'west_center_area_tottori' %>
+            <%= form.check_box :west_center_area, { multiple: true }, 'shimane', nil %> <%= label :west_center_area_shimane, '島根', for:'west_center_area_shimane' %>
+            <%= form.check_box :west_center_area, { multiple: true }, 'okayama', nil %> <%= label :west_center_area_okayama, '岡山', for: 'west_center_area_okayama' %>
+            <%= form.check_box :west_center_area, { multiple: true }, 'hiroshima', nil %> <%= label :west_center_area_hiroshima, '広島', for: 'west_center_area_hiroshima' %>
+            <%= form.check_box :west_center_area, { multiple: true }, 'yamaguchi', nil %> <%= label :west_center_area_yamaguchi, '山口', for: 'west_center_area_yamaguchi' %>
+
+            <h4>四国エリア</h4>
+            <%= form.check_box :west_island_area, { multiple: true }, 'tokushima', nil %> <%= label :west_island_area_tokushima, '徳島', for: 'west_island_area_tokushima' %>
+            <%= form.check_box :west_island_area, { multiple: true }, 'kagawa', nil %> <%= label :west_island_area_kagawa, '香川', for:'west_island_area_kagawa' %>
+            <%= form.check_box :west_island_area, { multiple: true }, 'ehime', nil %> <%= label :west_island_area_ehime, '愛媛', for: 'west_island_area_ehime' %>
+            <%= form.check_box :west_island_area, { multiple: true }, 'kouchi', nil %> <%= label :west_island_area_kouchi, '高知', for: 'west_island_area_kouchi' %>
+
+            <h4>九州・沖縄エリア</h4>
+            <%= form.check_box :south_area, { multiple: true }, 'hukuoka', nil %> <%= label :south_area_hukuoka, '福岡', for: 'south_area_hukuoka' %>
+            <%= form.check_box :south_area, { multiple: true }, 'saga', nil %> <%= label :south_area_saga, '佐賀', for:'south_area_saga' %>
+            <%= form.check_box :south_area, { multiple: true }, 'nagasaki', nil %> <%= label :south_area_nagasaki, '長崎', for: 'south_area_nagasaki' %>
+            <%= form.check_box :south_area, { multiple: true }, 'oita', nil %> <%= label :south_area_oita, '大分', for: 'south_area_oita' %>
+            <%= form.check_box :south_area, { multiple: true }, 'kumamoto', nil %> <%= label :south_area_kumamoto, '熊本', for: 'south_area_kumamoto' %>
+            <%= form.check_box :south_area, { multiple: true }, 'miyazaki', nil %> <%= label :south_area_miyazaki, '宮崎', for:'north_eresouth_area_miyazakia_yamagata' %>
+            <%= form.check_box :south_area, { multiple: true }, 'kagoshima', nil %> <%= label :south_area_kagoshima, '鹿児島', for: 'south_area_kagoshima' %>
+            <%= form.check_box :south_area, { multiple: true }, 'okinawa', nil %> <%= label :south_area_okinawa, '沖縄', for: 'south_area_okinawa' %>
+
+
+
+
+
+
+
+        
+        <% end %>
+
+
+    </div>
+
+    <div id="tab2" class="tabcontent" style="display:none;">
+    <!-- Tab 2 の内容 -->
+    </div>
+
+    <div id="tab3" class="tabcontent" style="display:none;">
+    <!-- Tab 3 の内容 -->
+    </div>
+
+</div>
+
+
+<script>
+    function openTab(tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    document.getElementById(tabName).style.display = "block";
+
+    // 選択されたタブにactiveクラスを追加する
+    tablinks = document.getElementsByClassName("tab");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+    }
+    document.querySelector('.tab[data-tab="' + tabName + '"]').classList.add("active");
+    }
+</script>

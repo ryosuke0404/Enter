@@ -1,0 +1,72 @@
+<%= form_with(model: @company, url: companies_path) do |form| %>
+  <h1>基本情報登録</h1>
+  <h4>はじめにあなたの会社情報を登録してください。</h4>
+  <h4>あとから変更することもできます。</h4>
+
+  <p>会社名</p>
+  <%= form.text_field :name, placeholder: '株式会社XX' %>
+  
+  <p>所在地</p>
+  <%= form.text_field :location, placeholder: '東京都渋谷区' %>
+  
+  <p>会社サイトURL</p>
+  <%= form.text_field :url, placeholder: 'https://www.example.com' %>
+  
+  <p>正社員数</p>
+  <%= form.text_field :worker, placeholder: '100' %>
+  
+  <p>設立年</p>
+  <%= form.text_field :establish, placeholder: '1999' %>
+  
+  <p>資本金</p>
+  <%= form.text_field :asset, placeholder: '10000000' %>
+
+  <h1>進出先の条件登録</h1>
+  <h4>進出先の希望や条件を登録してください。</h4>
+  <h4>登録することで条件にあった自治体からオファーが届いたり、</h4>
+  <h4>リコメンドの制度が向上します</h4>
+  <h4>後から変更することもできます。</h4>
+
+  <h4>進出予定</h4>
+  <%= form.radio_button :step_schedule, 'soon' %><%= label :step_schedule_soon, 'すぐにでも進出したい', for: 'step_schedule_soon' %>
+  <%= form.radio_button :step_schedule, 'before_one_year' %> <%= label :step_schedule_before_one_year, '1年以内に進出したい', for: 'step_schedule_before_one_year' %>
+  <%= form.radio_button :step_schedule, 'after_one_year' %> <%= label :step_schedule_after_one_year, '1年以降に進出したい', for: 'step_schedule_after_one_year' %>
+  <%= form.radio_button :step_schedule, 'no_plan' %> <%= label :step_schedule_no_plan, '具体的な時期は考えていない', for:'step_schedule_no_plan' %>
+
+  <h4>進出の目的</h4>
+  <%= form.check_box :interests, { multiple: true }, 'workation', nil %> <%= label :interests_workation, 'ワーケーション', for: 'interests_workation' %>
+  <%= form.check_box :interests, { multiple: true }, 'human_resource', nil %> <%= label :interests_human_resource, '人材採用', for:'interests_human_resource' %>
+  <%= form.check_box :interests, { multiple: true }, 'ease_cost', nil %> <%= label :interests_ease_cost, 'コスト削減', for: 'interests_ease_cost' %>
+  <%= form.check_box :interests, { multiple: true }, 'bcp', nil %> <%= label :interests_bcp, 'BCP', for: 'interests_bcp' %>
+  <%
+=begin%>
+ <%= form.check_box :interests, { multiple: true }, 'business', nil %> コスト削減 
+<%
+=end%>
+<%= form.check_box :interests, { multiple: true, id: 'other_interest_checkbox' }, 'other', nil %>
+<%= label :interests_other, 'その他', for: 'other_interest_checkbox' %>
+
+<%= form.text_field :interests_text, id: 'other_interest_textbox', style: 'display:none;', placeholder: 'その他の目的を入力してください' %>
+
+<%= form.submit '登録' %>
+
+<% end %>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const checkbox = document.getElementById('other_interest_checkbox');
+    const textbox = document.getElementById('other_interest_textbox');
+
+    // チェックボックスの状態が変更されたときのイベントリスナー
+    checkbox.addEventListener('change', function() {
+      if (checkbox.checked) {
+        // チェックボックスが選択された場合、テキストボックスを表示する
+        textbox.style.display = 'block';
+      } else {
+        // チェックボックスが選択解除された場合、テキストボックスの値を削除して非表示にする
+        textbox.value = '';
+        textbox.style.display = 'none';
+      }
+    });
+  });
+</script>
