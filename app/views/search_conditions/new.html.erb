@@ -34,6 +34,11 @@
     .header h2 a:hover {
         text-decoration: underline;
     }
+    .opened_tab{
+        background-color: #90f;
+        border-color: #90f;
+        color: white;
+    }
 </style>
 
 <div class="header">
@@ -78,7 +83,7 @@
             border-radius: 8px; /* 角を丸くする */
             }
         </style>
-        <div class="tab" onclick="openTab('tab1')" style="background-color: #90f; border-color: #90f; color: white;">エリア</div>
+        <div class="tab opened_tab" onclick="openTab('tab1')">エリア</div>
         <div class="tab" onclick="openTab('tab2')">地域の特徴</div>
         <div class="tab" onclick="openTab('tab3')">地域課題</div>
         <div class="tab" onclick="openTab('tab4')">進出イメージ</div>
@@ -419,10 +424,15 @@ function openTab(tabName) {
         tabcontent[i].style.display = "none";
     }
 
-    // すべてのタブから active クラスを削除する
     tablinks = document.getElementsByClassName("tab");
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].classList.remove("active");
+        if (tablinks[i].getAttribute('onclick').includes(tabName)) {
+            tablinks[i].classList.add("opened_tab");
+        }
+        else{
+            tablinks[i].classList.remove("opened_tab");
+        }
     }
 
     // クリックされたタブに対応するコンテンツを表示する
