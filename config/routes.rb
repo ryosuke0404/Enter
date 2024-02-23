@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'detail_goverment/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -8,6 +9,8 @@ Rails.application.routes.draw do
   get '/signup', to:'registrations#new'
   get '/status_list', to: 'coop_home#status_list' 
   get 'search_conditions/new', to: 'search_conditions#new', as: 'new_search_conditions'
+  get 'status_list', to: 'coop_home#status_list'
+
 
   # Defines the root path route ("/")
   # root "posts#index"
