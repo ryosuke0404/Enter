@@ -1,2 +1,155 @@
-<h1>DetailGoverment#index</h1>
-<p>Find me in app/views/detail_goverment/index.html.erb</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<style>
+    .box1 {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #000;
+        margin: 10px;
+        display: inline-block;
+    }
+
+    .header {
+        background-color: #ccc;
+        color: #666;
+        padding: 10px;
+    }
+
+    .header h2 {
+        margin-top: 0;
+        font-size: 16px;
+    }
+
+    .header h2 a {
+        color: #666;
+        text-decoration: none;
+    }
+
+    .header h2 a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="header">
+    <h2><%= link_to 'ホーム', status_list_path %></h2>
+    <h2>案件管理</h2>
+        <div class="home">
+            <style>
+                .home {
+                background-color: #9cf;
+                color: #666;
+                padding: 5px;
+                }
+            </style>
+            <h2><%= link_to '進出先を探す', new_search_conditions_path %></h2>
+        </div>
+    <h2>お問い合わせ</h2>
+</div>
+
+<div>
+    <h2>〇〇県</h2>
+    <%= image_tag "licensed-image.jpg"%>
+    <h3>〇〇はここがスゴイ！</h3>
+    <p>縁結びの最強スポット「出雲大社」や世界遺産「石見銀山」が特に有名ですが、
+    国宝「松江城」、庭園ランキング日本一「足立美術館」や山陰の小京都「津和野」、
+    さらにはユネスコ世界ジオパーク「隠岐諸島」など、広いエリアにわたり沢山のおすすめ観光スポットがあります。</p>
+    <h3>このような企業様を探しています</h3>
+    <p>ICT 関連産業、医療・福祉サービス、食料品製造業、農産物加工施設、地域農産物等を提
+        供する農産物販売所、農家レストラン、農泊施設、ワイナリー等は特に望ましい。また、木質バイオ
+        マス発電をはじめとした地域資源バイオマスを活用した産業も含まれる。
+    </p>
+    <h3>基本情報</h3>
+    <table>
+        <tr>
+            <th>
+                地方
+            </th>
+            <td>
+                ◯◯地方
+            </td>
+        </tr>
+        <tr>
+            <th>
+                人口
+            </th>
+            <td>
+                XXXXXX(全国X位)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                面積
+            </th>
+            <td>
+                XXXXXX(全国X位)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                人口密度
+            </th>
+            <td>
+                XXXXXX(全国X位)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                県庁所在地
+            </th>
+            <td>
+                XXX市
+            </td>
+        </tr>
+        <tr>
+            <th>
+                主要都市からのアクセス
+            </th>
+            <td>
+                東京からYYでXX時間
+            </td>
+        </tr>
+        <tr>
+            <th>
+                気温
+            </th>
+            <td>
+                春：A度、夏：B度、秋：C度、冬：D度
+            </td>
+        </tr>
+        <tr>
+            <th>
+                自治体
+            </th>
+            <td>
+                XX、XX、XX、XX
+            </td>
+        </tr>
+    </table>
+
+    <h3>仕事面</h3>
+    <p>XXXXXX!</p>
+
+    <p>XXXXXX!</p>
+    <h3>生活面</h3>
+    <p>XXXXXX!</p>
+    
+    <p>XXXXXX!</p>
+    <h3>先輩移住者の声</h3>
+    <p>XXXXXX!</p>
+    
+    <p>XXXXXX!</p>
+
+    <h3>私達が進出のお手伝いをします！</h3>
+    <p>XXXXXX!</p>
+    
+    <p>XXXXXX!</p>
+
+    <input type="textarea">
+    <button>相談する</button>
+</div>
