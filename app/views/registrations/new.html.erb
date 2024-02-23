@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
-<%= form_with(model: @company, url: companies_path) do |form| %>
+<%= form_with(url: "/coop_home/status_list", method: "get") do |form| %>
 <div class="container">
   <main>
     <div class="py-5 text-center">
@@ -47,9 +47,13 @@
       <div style="display: flex; flex-direction: column;">
         <p style="margin-bottom: 10px; align-self: flex-start;">資本金</p>
         <%= form.text_field :asset, placeholder: '10000000' %>
-        <div style="text-align: center;">
+        <%
+=begin%>
+ <div style="text-align: center;">
         <%= form.submit '登録' , style: "margin-top: 20px; background-color: purple; color: white; border: 2px solid purple; border-radius: 5px;" %>
-        </div>
+        </div> 
+<%
+=end%>
         <% end %>
       </div>
     </div>
@@ -116,7 +120,7 @@
   <%= form.text_field :interests_text, id: 'other_interest_textbox', style: 'display:none;', placeholder: 'その他の目的を入力してください' %>
 
   <div style="text-align: center;">
-    <%= form.submit '登録' , style: "margin-top: 20px; background-color: purple; color: white; border: 2px solid purple; border-radius: 5px;" %>
+    <%= link_to '登録' , status_list_path, style: "margin-top: 20px; background-color: purple; color: white; border: 2px solid purple; border-radius: 5px;" %>
   </div>
   <% end %>
 </div>

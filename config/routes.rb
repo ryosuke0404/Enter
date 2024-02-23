@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'search_list/index'
   get 'detail_goverment/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -10,6 +11,13 @@ Rails.application.routes.draw do
   get '/status_list', to: 'coop_home#status_list' 
   get 'search_conditions/new', to: 'search_conditions#new', as: 'new_search_conditions'
   get 'status_list', to: 'coop_home#status_list'
+  get '/detail_goverment', to: 'detail_goverment#index'
+  get '/coop_home/status_list', to: 'coop_home#status_list'
+  get 'search_conditions/new', to: 'search_conditions#new'
+  get '/search_list', to: 'search_list#index'
+
+
+
 
 
   # Defines the root path route ("/")
