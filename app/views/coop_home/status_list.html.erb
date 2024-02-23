@@ -1,71 +1,200 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<style>
+    .box1 {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #000;
+        margin: 10px;
+        display: inline-block;
+    }
+
+    .header {
+        background-color: #ccc;
+        color: #666;
+        padding: 10px;
+    }
+
+    .header h2 {
+        margin-top: 0;
+        font-size: 16px;
+    }
+
+    .header h2 a {
+        color: #666;
+        text-decoration: none;
+    }
+
+    .header h2 a:hover {
+        text-decoration: underline;
+    }
+</style>
+
 <div class="header">
-<h2><%= link_to 'ホーム', status_list_path %></h2>
-<h2>案件管理</h2>
-<h2><%= link_to '進出先を探す', new_search_conditions_path %></h2>
-<h2>お問い合わせ</h2>
+    <div class="home">
+        <style>
+            .home {
+            background-color: #9cf;
+            color: #666;
+            padding: 5px;
+            }
+        </style>
+        <h2><%= link_to 'ホーム', status_list_path %></h2>
+    </div>
+    <h2>案件管理</h2>
+    <h2><%= link_to '進出先を探す', new_search_conditions_path %></h2>
+    <h2>お問い合わせ</h2>
 </div>
 
 <div class="status_list">
-<h2>ステータス一覧</h2>
-<h4>受信オファー数</h4>
-<h4>面談数</h4>
-<h4>成約数</h4>
-<h4>オファー未回答</h4>
-<h4>進行中の案件</h4>
-<h3>◯◯県<a href="https://www.pref.shimane.lg.jp/">特集ページ</a> <p>未読</p> <button><a href="">オファー詳細</a></button> <button><a href="">メッセージ</a></button> </h3>
-<h3>〇〇県 <a href="https://www.pref.tottori.lg.jp/">特集ページ</a> <p>未回答</p> <button><a href="">オファー詳細</a></button> <button><a href="">メッセージ</a></h3>
 
-<h2>面談予定</h2>
-<table>
-    <th>
+    <div style="margin-bottom: 30px;">
+    </div>
+
+
+<div class="py-5 text-center">
+    <h2>ステータス一覧</h2>
+
+    <div style="margin-bottom: 20px;">
+    </div>
+
+    <div class="box-container">
+        <style>
+            .box-container {
+            display: flex; /* ボックスを横並びにする */
+            justify-content: center;
+            }
+
+            .box {
+            width: 120px;
+            height: 50px;
+            border: 1px solid #999;
+            margin-right: 10px; /* ボックス間の横の隙間 */
+            border-radius: 10px; /* 角を丸くする */
+            margin-bottom: 20px; /* ボックス間の余白 */
+            padding: 10px; /* テキストの余白 */
+            }
+
+            
+        </style>
+
+        <div class="box">
+            <h4>受信オファー数</h4>
+        </div>
+        <div class="box">
+            <h4>面談数</h4>
+        </div>
+        <div class="box">
+            <h4>成約数</h4>
+        </div>
+        <div class="box">
+            <h4>オファー未回答</h4>
+        </div>
+        <div class="box">
+            <h4>進行中の案件</h4>
+        </div>
+    </div>
+
+<div style="margin-bottom: 50px;">
+</div>
+
+    <div class="container">
+        <style>
+            .container {
+                width: 500px; /* 大きな四角の幅 */
+                height: 50px; /* 大きな四角の高さ */
+                border: 2px solid #000; /* 四角形の枠線 */
+                border-radius: 10px; /* 角の丸み */
+                padding: 10px; /* 内側の余白 */
+                display: flex;
+                justify-content: space-around; /* 要素間のスペースを均等に配置 */
+                align-items: center; /* 要素を中央揃えに */
+            }
+
+            h3 {
+                margin: 0; /* h3要素のマージンをリセット */
+            }
+
+            button {
+                padding: 5px 10px; /* ボタンの余白 */
+                border-radius: 5px; /* ボタンの角の丸み */
+                border: none; /* ボタンの枠線を削除 */
+                background-color: #ccc; /* ボタンの背景色 */
+            }
+
+            button a {
+                text-decoration: none; /* ボタン内のリンクの下線を削除 */
+                color: #000; /* ボタン内のリンクの色 */
+            }
+
+        </style>
+
+        <h3>◯◯県<a href="https://www.pref.shimane.lg.jp/">特集ページ</a></h3>
+        <p>未読</p>
+        <button><a href="">オファー詳細</a></button>
+        <button><a href="">メッセージ</a></button>
+    </div>
+
+    <h3>〇〇県 <a href="https://www.pref.tottori.lg.jp/">特集ページ</a> <p>未回答</p> <button><a href="">オファー詳細</a></button> <button><a href="">メッセージ</a></h3>
+    
+    <h2>面談予定</h2>
+    <table>
+        <th>
+            <tr>
+                <td>日程</td>
+                <td>時間</td>
+                <td>お相手</td>
+                <td>タイトル</td>
+                <td>URL</td>
+            </tr>
+        <th>
         <tr>
-            <td>日程</td>
-            <td>時間</td>
-            <td>お相手</td>
-            <td>タイトル</td>
-            <td>URL</td>
+            <td>7月8(金)</td>
+            <td>11:00-12:00</td>
+            <td>〇〇県様</td>
+            <td>概要紹介</td>
+            <td><a href="">https://</a></td>
         </tr>
-    <th>
-    <tr>
-        <td>7月8(金)</td>
-        <td>11:00-12:00</td>
-        <td>〇〇県様</td>
-        <td>概要紹介</td>
-        <td><a href="">https://</a></td>
-    </tr>
-    <tr>
-        <td>7月12(火)</td>
-        <td>14:00-15:00</td>
-        <td>◯◯県様</td>
-        <td>手続き説明</td>
-        <td><a href="">https://</a></td>
-    </tr>
-</table>
+        <tr>
+            <td>7月12(火)</td>
+            <td>14:00-15:00</td>
+            <td>◯◯県様</td>
+            <td>手続き説明</td>
+            <td><a href="">https://</a></td>
+        </tr>
+    </table>
 
-<h2>新着ニュース</h2>
-<div>
-    <p>記事タイトル</p>
-    <p>発信元</p>
-</div>
-<div>
-    <p>記事タイトル</p>
-    <p>発信元</p>
-</div>
-<div>
-    <p>記事タイトル</p>
-    <p>発信元</p>
-</div>
+    <h2>新着ニュース</h2>
+    <div>
+        <p>記事タイトル</p>
+        <p>発信元</p>
+    </div>
+    <div>
+        <p>記事タイトル</p>
+        <p>発信元</p>
+    </div>
+    <div>
+        <p>記事タイトル</p>
+        <p>発信元</p>
+    </div>
 
-<div>
-    <p>記事タイトル</p>
-    <p>発信元</p>
-</div>
-<div>
-    <p>記事タイトル</p>
-    <p>発信元</p>
-</div>
-<div>
-    <p>記事タイトル</p>
-    <p>発信元</p>
-</div>
+    <div>
+        <p>記事タイトル</p>
+        <p>発信元</p>
+    </div>
+    <div>
+        <p>記事タイトル</p>
+        <p>発信元</p>
+    </div>
+    <div>
+        <p>記事タイトル</p>
+        <p>発信元</p>
+    </div>
+    </div>
 </div>

@@ -1,24 +1,105 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<style>
+    .box1 {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #000;
+        margin: 10px;
+        display: inline-block;
+    }
+
+    .header {
+        background-color: #ccc;
+        color: #666;
+        padding: 10px;
+    }
+
+    .header h2 {
+        margin-top: 0;
+        font-size: 16px;
+    }
+
+    .header h2 a {
+        color: #666;
+        text-decoration: none;
+    }
+
+    .header h2 a:hover {
+        text-decoration: underline;
+    }
+</style>
+
 <div class="header">
-<h2><%= link_to 'ホーム', status_list_path %></h2>
-<h2>案件管理</h2>
-<h2><%= link_to '進出先を探す', new_search_conditions_path %></h2>
-<h2>お問い合わせ</h2>
+    <h2><%= link_to 'ホーム', status_list_path %></h2>
+    <h2>案件管理</h2>
+        <div class="home">
+            <style>
+                .home {
+                background-color: #9cf;
+                color: #666;
+                padding: 5px;
+                }
+            </style>
+            <h2><%= link_to '進出先を探す', new_search_conditions_path %></h2>
+        </div>
+    <h2>お問い合わせ</h2>
 </div>
 
+
 <div class="status_list">
-    <h2>進出先を探す</h2>
+    <div style="margin-bottom: 20px;">
+    </div>
+
+    <h2 style="color: gray;">進出先を探す</h2>
+
+    <div style="margin-bottom: 20px;">
+    </div>
+
     <input type="text" placeholder="キーワードを入力">
-    <button>検索</button>
+    <button style="background-color: #90f; border-color: #90f; color: white;">検索</button>
+
+    <div style="margin-bottom: 20px;">
+    </div>
 
     <div class="tabs">
-        <div class="tab" onclick="openTab('tab1')">エリア</div>
+        <style>
+            .tab {
+            border: 1px solid #999;
+            padding: 10px;
+            margin: 0 10px; /* タブ間の余白 */
+            cursor: pointer;
+            border-radius: 8px; /* 角を丸くする */
+        }
+        </style>
+        <div class="tab" onclick="openTab('tab1')" style="background-color: #90f; border-color: #90f; color: white;">エリア</div>
         <div class="tab" onclick="openTab('tab2')">拠点の役割</div>
         <div class="tab" onclick="openTab('tab3')">求める環境</div>
     </div>
 
     <div id="tab1" class="tabcontent">
-        <%= form_with(model: @company, url: companies_path) do |form| %>
-            <h4>北海道・東北エリア</h4>
+        <div class="box">
+            <style>
+                .box {
+                border: 1px solid #999;
+                padding: 10px;
+                margin-bottom: 20px;
+                width: fit-content; /* コンテンツに合わせて幅を調整 */
+                border-radius: 8px;
+                }
+            </style>
+            <%= form_with(model: @company, url: companies_path) do |form| %>
+            
+            <div style="margin-bottom: 5px;">
+            </div>
+
+            <h4 style="color: #666;">北海道・東北エリア</h4>
             <%= form.check_box :north_area, { multiple: true }, 'hokkaido', nil %> <%= label :north_erea_hokkaido, '北海道', for: 'north_erea_hokkaido' %>
             <%= form.check_box :north_erea, { multiple: true }, 'aomori', nil %> <%= label :north_erea_aomori, '青森', for:'north_erea_aomori' %>
             <%= form.check_box :north_erea, { multiple: true }, 'iwate', nil %> <%= label :north_erea_iwate, '岩手', for: 'north_erea_iwate' %>
@@ -27,7 +108,10 @@
             <%= form.check_box :north_erea, { multiple: true }, 'yamagata', nil %> <%= label :north_erea_yamagata, '山形', for:'north_erea_yamagata' %>
             <%= form.check_box :north_erea, { multiple: true }, 'hukushima', nil %> <%= label :north_erea_hukushima, '福島', for: 'north_erea_hukushima' %>
 
-            <h4>関東エリア</h4>
+            <div style="margin-bottom: 5px;">
+            </div>
+
+            <h4 style="color: #666;">関東エリア</h4>
             <%= form.check_box :east_area, { multiple: true }, 'tokyo', nil %> <%= label :east_area_tokyo, '東京', for: 'east_area_tokyo' %>
             <%= form.check_box :east_area, { multiple: true }, 'ibaraki', nil %> <%= label :east_area_ibaraki, '茨城', for:'east_area_ibaraki' %>
             <%= form.check_box :east_area, { multiple: true }, 'totigi', nil %> <%= label :east_area_totigi, '栃木', for: 'east_area_totigi' %>
@@ -36,8 +120,10 @@
             <%= form.check_box :east_area, { multiple: true }, 'chiba', nil %> <%= label :east_area_chiba, '千葉', for:'east_area_chiba' %>
             <%= form.check_box :east_area, { multiple: true }, 'kanagawa', nil %> <%= label :east_area_kanagawa, '神奈川', for: 'east_area_kanagawa' %>
 
+            <div style="margin-bottom: 5px;">
+            </div>
 
-            <h4>中部エリア</h4>
+            <h4 style="color: #666;">中部エリア</h4>
             <%= form.check_box :center_area, { multiple: true }, 'nigata', nil %> <%= label :center_area_nigata, '新潟', for: 'center_area_nigata' %>
             <%= form.check_box :center_area, { multiple: true }, 'toyama', nil %> <%= label :center_area_toyama, '富山', for:'center_area_toyama' %>
             <%= form.check_box :center_area, { multiple: true }, 'ishikawa', nil %> <%= label :center_area_ishikawa, '石川', for: 'center_area_ishikawa' %>
@@ -48,8 +134,10 @@
             <%= form.check_box :center_area, { multiple: true }, 'shizuoka', nil %> <%= label :center_area_shizuoka, '静岡', for: 'center_area_shizuoka' %>
             <%= form.check_box :center_area, { multiple: true }, 'aichi', nil %> <%= label :center_area_aichi, '愛知', for: 'center_area_aichi' %>
 
+            <div style="margin-bottom: 5px;">
+            </div>
 
-            <h4>近畿エリア</h4>
+            <h4 style="color: #666;">近畿エリア</h4>
             <%= form.check_box :west_area, { multiple: true }, 'kyoto', nil %> <%= label :west_area_kyoto, '京都', for: 'west_area_kyoto' %>
             <%= form.check_box :west_area, { multiple: true }, 'osaka', nil %> <%= label :west_area_osaka, '大阪', for:'west_area_osaka' %>
             <%= form.check_box :west_area, { multiple: true }, 'hyogo', nil %> <%= label :west_area_hyogo, '兵庫', for: 'west_area_hyogo' %>
@@ -58,20 +146,29 @@
             <%= form.check_box :west_area, { multiple: true }, 'wakayama', nil %> <%= label :west_area_wakayama, '和歌山', for:'west_area_wakayama' %>
             <%= form.check_box :west_area, { multiple: true }, 'mie', nil %> <%= label :west_area_mie, '三重', for: 'west_area_mie' %>
 
-            <h4>中国エリア</h4>
+            <div style="margin-bottom: 5px;">
+            </div>
+
+            <h4 style="color: #666;">中国エリア</h4>
             <%= form.check_box :west_center_area, { multiple: true }, 'tottori', nil %> <%= label :west_center_area_tottori, '鳥取', for: 'west_center_area_tottori' %>
             <%= form.check_box :west_center_area, { multiple: true }, 'shimane', nil %> <%= label :west_center_area_shimane, '島根', for:'west_center_area_shimane' %>
             <%= form.check_box :west_center_area, { multiple: true }, 'okayama', nil %> <%= label :west_center_area_okayama, '岡山', for: 'west_center_area_okayama' %>
             <%= form.check_box :west_center_area, { multiple: true }, 'hiroshima', nil %> <%= label :west_center_area_hiroshima, '広島', for: 'west_center_area_hiroshima' %>
             <%= form.check_box :west_center_area, { multiple: true }, 'yamaguchi', nil %> <%= label :west_center_area_yamaguchi, '山口', for: 'west_center_area_yamaguchi' %>
 
-            <h4>四国エリア</h4>
+            <div style="margin-bottom: 5px;">
+            </div>
+
+            <h4 style="color: #666;">四国エリア</h4>
             <%= form.check_box :west_island_area, { multiple: true }, 'tokushima', nil %> <%= label :west_island_area_tokushima, '徳島', for: 'west_island_area_tokushima' %>
             <%= form.check_box :west_island_area, { multiple: true }, 'kagawa', nil %> <%= label :west_island_area_kagawa, '香川', for:'west_island_area_kagawa' %>
             <%= form.check_box :west_island_area, { multiple: true }, 'ehime', nil %> <%= label :west_island_area_ehime, '愛媛', for: 'west_island_area_ehime' %>
             <%= form.check_box :west_island_area, { multiple: true }, 'kouchi', nil %> <%= label :west_island_area_kouchi, '高知', for: 'west_island_area_kouchi' %>
 
-            <h4>九州・沖縄エリア</h4>
+            <div style="margin-bottom: 5px;">
+            </div>
+            
+            <h4 style="color: #666;">九州・沖縄エリア</h4>
             <%= form.check_box :south_area, { multiple: true }, 'hukuoka', nil %> <%= label :south_area_hukuoka, '福岡', for: 'south_area_hukuoka' %>
             <%= form.check_box :south_area, { multiple: true }, 'saga', nil %> <%= label :south_area_saga, '佐賀', for:'south_area_saga' %>
             <%= form.check_box :south_area, { multiple: true }, 'nagasaki', nil %> <%= label :south_area_nagasaki, '長崎', for: 'south_area_nagasaki' %>
@@ -81,7 +178,7 @@
             <%= form.check_box :south_area, { multiple: true }, 'kagoshima', nil %> <%= label :south_area_kagoshima, '鹿児島', for: 'south_area_kagoshima' %>
             <%= form.check_box :south_area, { multiple: true }, 'okinawa', nil %> <%= label :south_area_okinawa, '沖縄', for: 'south_area_okinawa' %>
 
-
+        </div>
 
 
 
@@ -121,3 +218,5 @@
     document.querySelector('.tab[data-tab="' + tabName + '"]').classList.add("active");
     }
 </script>
+
+
